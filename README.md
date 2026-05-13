@@ -223,4 +223,6 @@ Edita `src/lib/parches.ts` y añade un objeto al array `parches`:
 
 ---
 
-*El Buen ROI — Maximiza cada peso en la calle.*
+*El Buen ROI — Maximiza cada peso en la calle.* 
+
+Devlopment
