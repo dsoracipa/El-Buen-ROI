@@ -7,6 +7,7 @@ import { motion, useSpring, useMotionValue } from 'framer-motion';
 import type { Parche } from '@/lib/parches';
 import { formatCOP } from '@/lib/parches';
 import RiskBadge from './RiskBadge';
+import AnimatedNumber from './AnimatedNumber';
 
 const CATEGORY_COLORS: Record<string, string> = {
   Nightlife:   '#D90429',
@@ -59,6 +60,7 @@ export default function ParcheCard({ parche, featured = false }: ParcheCardProps
             group-hover:border-[#D90429] group-hover:shadow-brutal-red
             transition-all duration-300
             ${featured ? 'h-[480px]' : 'h-[340px]'}
+            ${parche.perfilRiesgo === 'Especulativo' ? 'glitch-card' : ''}
           `}
         >
           {/* Image */}
@@ -105,12 +107,15 @@ export default function ParcheCard({ parche, featured = false }: ParcheCardProps
                 <span className="text-[10px] text-white/40 font-mono uppercase tracking-widest" style={{ fontFamily: "'Space Mono', monospace" }}>
                   ROE
                 </span>
-                <span
-                  className="text-sm font-mono font-bold tabular-nums"
-                  style={{ color: parche.roe >= 75 ? '#00D964' : parche.roe >= 50 ? '#FFD166' : '#D90429', fontFamily: "'Space Mono', monospace" }}
-                >
-                  {parche.roe}%
-                </span>
+                <AnimatedNumber
+                  value={parche.roe}
+                  suffix="%"
+                  className={`text-sm font-mono font-bold tabular-nums ${parche.roe >= 75 ? 'neon-green' : parche.roe >= 50 ? 'neon-yellow' : 'neon-red'}`}
+                  style={{
+                    color: parche.roe >= 75 ? '#00D964' : parche.roe >= 50 ? '#FFD166' : '#D90429',
+                    fontFamily: "'Space Mono', monospace",
+                  }}
+                />
               </div>
               <div className="flex flex-col">
                 <span className="text-[10px] text-white/40 font-mono uppercase tracking-widest" style={{ fontFamily: "'Space Mono', monospace" }}>
@@ -124,7 +129,7 @@ export default function ParcheCard({ parche, featured = false }: ParcheCardProps
                 <span className="text-[10px] text-white/40 font-mono uppercase tracking-widest" style={{ fontFamily: "'Space Mono', monospace" }}>
                   EBITDA
                 </span>
-                <span className="text-sm font-mono tabular-nums text-[#00D964]" style={{ fontFamily: "'Space Mono', monospace" }}>
+                <span className="text-sm font-mono tabular-nums text-[#00D964] neon-green" style={{ fontFamily: "'Space Mono', monospace" }}>
                   {formatCOP(parche.ebitda)}
                 </span>
               </div>
