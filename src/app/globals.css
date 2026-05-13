@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #0A0A0A;
+  --background: #050505;
   --foreground: #E5E5E5;
   --fire-red: #D90429;
   --terminal-green: #00D964;
@@ -44,6 +44,17 @@ body {
 ::-webkit-scrollbar-track { background: #0A0A0A; }
 ::-webkit-scrollbar-thumb { background: var(--fire-red); border-radius: 0; }
 
+/* ─── Neon glow utilities ─────────────────────────── */
+.neon-green {
+  text-shadow: 0 0 6px #00D964, 0 0 18px rgba(0, 217, 100, 0.4);
+}
+.neon-red {
+  text-shadow: 0 0 6px #D90429, 0 0 18px rgba(217, 4, 41, 0.4);
+}
+.neon-yellow {
+  text-shadow: 0 0 6px #FFD166, 0 0 18px rgba(255, 209, 102, 0.35);
+}
+
 /* ─── Blink animation (terminal aesthetic) ───────── */
 @keyframes blink {
   0%, 100% { opacity: 1; }
@@ -51,6 +62,19 @@ body {
 }
 .blink {
   animation: blink 1.4s ease-in-out infinite;
+}
+
+/* ─── Glitch effect (Especulativo hover) ─────────── */
+@keyframes glitch {
+  0%, 90%, 100% { transform: translate(0) skewX(0deg); filter: none; }
+  92%  { transform: translate(-3px, 1px) skewX(-1.5deg); filter: hue-rotate(5deg) brightness(1.08); }
+  94%  { transform: translate(3px, -1px) skewX(1deg); filter: hue-rotate(-5deg) brightness(0.95); }
+  96%  { transform: translate(-2px, 2px) skewX(0deg); filter: brightness(1.12); }
+  98%  { transform: translate(1px, -1px) skewX(0.5deg); filter: none; }
+}
+
+.glitch-card:hover {
+  animation: glitch 2.5s ease-in-out infinite;
 }
 
 /* ─── Ticker scroll (hero bottom bar) ────────────── */
