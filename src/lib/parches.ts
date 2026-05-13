@@ -9,9 +9,11 @@ export interface Parche {
   // Métricas financieras
   roe: number;               // 0–100: Return on Entertainment
   capex: number;             // COP: inversión mínima (transporte + entrada)
+  capexTransporte: number;   // COP: porción de capex atribuible al transporte
   ebitda: number;            // COP: valor real disfrutado antes de extras
   perfilRiesgo: PerfilRiesgo;
   tieneConsumoMinimo: boolean;
+  esExterior: boolean;       // true = expuesto a riesgo climático
   precioBase: number;        // COP: precio mínimo de entrada
   fecha: string;
   contenido: string;
@@ -27,9 +29,11 @@ export const parches: Parche[] = [
     imagen: '/images/parche-1.jpg',
     roe: 98,
     capex: 3500,
+    capexTransporte: 3500,
     ebitda: 45000,
     perfilRiesgo: 'Conservador',
     tieneConsumoMinimo: false,
+    esExterior: true,
     precioBase: 0,
     fecha: '2025-05-01',
     contenido:
@@ -44,9 +48,11 @@ export const parches: Parche[] = [
     imagen: '/images/parche-2.jpg',
     roe: 89,
     capex: 18000,
+    capexTransporte: 8000,
     ebitda: 35000,
     perfilRiesgo: 'Conservador',
     tieneConsumoMinimo: false,
+    esExterior: false,
     precioBase: 15000,
     fecha: '2025-04-20',
     contenido:
@@ -61,9 +67,11 @@ export const parches: Parche[] = [
     imagen: '/images/parche-3.jpg',
     roe: 85,
     capex: 25000,
+    capexTransporte: 7000,
     ebitda: 55000,
     perfilRiesgo: 'Moderado',
     tieneConsumoMinimo: false,
+    esExterior: false,
     precioBase: 5000,
     fecha: '2025-04-10',
     contenido:
@@ -78,9 +86,11 @@ export const parches: Parche[] = [
     imagen: '/images/parche-4.jpg',
     roe: 62,
     capex: 75000,
+    capexTransporte: 15000,
     ebitda: 80000,
     perfilRiesgo: 'Agresivo',
     tieneConsumoMinimo: true,
+    esExterior: false,
     precioBase: 40000,
     fecha: '2025-03-28',
     contenido:
@@ -95,9 +105,11 @@ export const parches: Parche[] = [
     imagen: '/images/parche-5.jpg',
     roe: 91,
     capex: 30000,
+    capexTransporte: 12000,
     ebitda: 60000,
     perfilRiesgo: 'Conservador',
     tieneConsumoMinimo: false,
+    esExterior: true,
     precioBase: 25000,
     fecha: '2025-03-15',
     contenido:
@@ -112,9 +124,11 @@ export const parches: Parche[] = [
     imagen: '/images/parche-6.jpg',
     roe: 44,
     capex: 120000,
+    capexTransporte: 15000,
     ebitda: 90000,
     perfilRiesgo: 'Especulativo',
     tieneConsumoMinimo: true,
+    esExterior: false,
     precioBase: 80000,
     fecha: '2025-03-05',
     contenido:

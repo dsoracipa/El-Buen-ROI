@@ -20,12 +20,13 @@ export default function RiskBadge({ perfil, className = '' }: RiskBadgeProps) {
 
   return (
     <span
-      className={`inline-block px-2 py-0.5 text-xs font-mono font-bold uppercase tracking-widest border ${blink ? 'blink' : ''} ${className}`}
+      className={`inline-block px-2 py-0.5 text-xs font-mono font-bold uppercase tracking-widest border ${blink ? 'blink neon-red' : ''} ${className}`}
       style={{
         color,
         borderColor: color,
         backgroundColor: bg,
         fontFamily: "'Space Mono', monospace",
+        ...(blink ? { boxShadow: `0 0 6px ${color}60, inset 0 0 6px ${color}20` } : {}),
       }}
     >
       {perfil}
