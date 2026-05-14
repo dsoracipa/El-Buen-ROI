@@ -66,6 +66,8 @@ export interface Editorial {
   reversed: boolean;
 }
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 // ─── PLANS ─────────────────────────────────────────────────────────────────
 
 export const PLANES_INIT: Plan[] = [
@@ -112,7 +114,7 @@ export const PLANES_INIT: Plan[] = [
     title: "Tour Gastronómico Laureles",
     cat: "Gastronomía",
     meta: "Laureles · Desde $45.000",
-    img: "/images/gastro.png",
+    img: `${BASE}/images/gastro.png`,
     delay: ".12s",
     zona: "Laureles",
     price: 45000,
@@ -149,7 +151,7 @@ export const PLANES_INIT: Plan[] = [
     title: "Concierto Indie Poblado",
     cat: "Música",
     meta: "El Poblado · Viernes 20:00",
-    img: "/images/concierto.png",
+    img: `${BASE}/images/concierto.png`,
     delay: ".24s",
     zona: "El Poblado",
     price: 35000,
@@ -185,7 +187,7 @@ export const PLANES_INIT: Plan[] = [
     title: "Escalada en el Arví",
     cat: "Aventura",
     meta: "Parque Arví · Todo el fin",
-    img: "/images/escalada.png",
+    img: `${BASE}/images/escalada.png`,
     delay: "0s",
     zona: "Parque Arví",
     price: 55000,
@@ -222,7 +224,7 @@ export const PLANES_INIT: Plan[] = [
     title: "Festival Vallenato Urbano",
     cat: "Festival",
     meta: "Parque de los Pies · Sáb.",
-    img: "/images/vallenato.png",
+    img: `${BASE}/images/vallenato.png`,
     delay: ".12s",
     zona: "Parque de los Pies",
     price: 25000,
@@ -522,7 +524,7 @@ export const EVENTOS: Evento[] = [
     id: 1, slug: "tulum-night-experience",
     title: "Tulum Night Experience", tag: "Electronic",
     date: "Sáb 17 May · 22:00",
-    img: "/images/eventos.png",
+    img: `${BASE}/images/eventos.png`,
     price: 75000, priceLabel: "Desde $75.000",
     availability: "pocas-entradas",
     venue: "Ensamble Club", zona: "El Poblado",
@@ -601,7 +603,7 @@ export const EVENTOS: Evento[] = [
 // ─── ZONAS ──────────────────────────────────────────────────────────────────
 
 export const ZONAS: Zona[] = [
-  { id: 1, name: "El Poblado", count: "312 planes", img: "/images/zonas.png", trending: true, thisWeek: 47, featuredEvent: "Tulum Night Experience", description: "El corazón de la vida nocturna y gastronómica.", cats: ["Música", "Gastronomía", "Arte"] },
+  { id: 1, name: "El Poblado", count: "312 planes", img: `${BASE}/images/zonas.png`, trending: true, thisWeek: 47, featuredEvent: "Tulum Night Experience", description: "El corazón de la vida nocturna y gastronómica.", cats: ["Música", "Gastronomía", "Arte"] },
   { id: 2, name: "Laureles", count: "178 planes", img: "https://picsum.photos/seed/laureles-mde/380/512", trending: false, thisWeek: 18, featuredEvent: "Tour Gastronómico Laureles", description: "El barrio más sabroso y tranquilo de la ciudad.", cats: ["Gastronomía", "Arte", "Cultura"] },
   { id: 3, name: "El Centro", count: "241 planes", img: "https://picsum.photos/seed/centro-mde/380/512", trending: true, thisWeek: 31, featuredEvent: "Arte Callejero del Centro", description: "Historia, arte urbano y la energía más auténtica.", cats: ["Arte", "Cultura", "Deporte"] },
   { id: 4, name: "Envigado", count: "95 planes", img: "https://picsum.photos/seed/envigado-mde/380/512", trending: false, thisWeek: 12, featuredEvent: "Show de Stand-Up", description: "Pueblo dentro de la ciudad: tranquilo y con buena vibra.", cats: ["Humor", "Gastronomía", "Cultura"] },

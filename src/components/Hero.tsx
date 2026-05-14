@@ -1,5 +1,7 @@
 "use client";
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 export default function Hero() {
   return (
     <section
@@ -11,7 +13,7 @@ export default function Hero() {
       <div className="hero-bg" />
       <img
         className="absolute inset-0 w-full h-full object-cover z-0"
-        src="/images/hero.png"
+        src={`${BASE}/images/hero.png`}
         alt="Medellín de noche"
         loading="eager"
         style={{ opacity: 0.52, filter: "saturate(.72) contrast(1.12)" }}
