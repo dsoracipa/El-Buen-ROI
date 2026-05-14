@@ -1,77 +1,127 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import MagneticButton from './MagneticButton';
-
-const NAV_LINKS = [
-  { href: '/#parches',      label: 'Análisis' },
-  { href: '/#calculadora', label: 'Calculadora' },
-];
+import { useState } from "react";
 
 export default function Navbar() {
-  const [isPast, setIsPast] = useState(false);
-  const { scrollY } = useScroll();
-
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    setIsPast(latest > window.innerHeight * 0.88);
-  });
+  const [open, setOpen] = useState(false);
 
   return (
-    <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4"
-      animate={
-        isPast
-          ? { backgroundColor: 'rgba(10,10,10,0.80)', backdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(229,229,229,0.08)' }
-          : { backgroundColor: 'rgba(10,10,10,0)',    backdropFilter: 'blur(0px)',  borderBottom: '1px solid rgba(229,229,229,0)' }
-      }
-      transition={{ duration: 0.38, ease: 'easeOut' }}
-    >
-      {/* Logo */}
-      <Link href="/" className="flex items-center gap-2 group">
-        <span
-          className="font-anton text-xl tracking-wider text-[#E5E5E5] group-hover:text-[#D90429] transition-colors"
-          style={{ fontFamily: 'Anton, sans-serif' }}
+    <>
+      <nav
+        className="fixed top-0 left-0 right-0 z-[999] flex items-center justify-between px-[5%]"
+        style={{
+          height: "var(--nav-h)",
+          background: "rgba(10,10,10,0.75)",
+          backdropFilter: "blur(18px)",
+          WebkitBackdropFilter: "blur(18px)",
+          borderBottom: "1px solid rgba(255,255,255,0.07)",
+        }}
+      >
+        <a
+          href="#"
+          className="font-display text-[26px] tracking-[0.03em] text-[var(--white)]"
         >
-          EL BUEN
-        </span>
-        <span
-          className="font-mono text-xs font-bold px-1.5 py-0.5 border border-[#00D964] text-[#00D964] blink"
-          style={{ fontFamily: "'Space Mono', monospace" }}
-        >
-          ROI
-        </span>
-      </Link>
+          Par<em className="text-[var(--green)] not-italic">Event</em>
+        </a>
 
-      {/* Nav links + CTA */}
-      <div className="flex items-center gap-5">
-        {NAV_LINKS.map((l) => (
-          <Link
-            key={l.href}
-            href={l.href}
-            className="hidden md:block text-xs font-mono text-white/50 hover:text-white transition-colors uppercase tracking-widest"
-            style={{ fontFamily: "'Space Mono', monospace" }}
+        <ul className="hidden md:flex gap-8 list-none">
+          {[
+            { href: "#planes", label: "Planes" },
+            { href: "#eventos", label: "Eventos" },
+            { href: "#editorial", label: "Editorial" },
+            { href: "#stats", label: "Nosotros" },
+          ].map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="text-[12px] font-semibold tracking-[0.13em] uppercase transition-colors duration-200"
+                style={{ color: "rgba(240,240,240,0.55)" }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = "var(--green)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = "rgba(240,240,240,0.55)")
+                }
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href="#"
+          className="hidden md:inline-block px-[22px] py-2 font-display text-[13px] tracking-[0.13em] uppercase transition-all duration-200 text-[var(--green)] hover:bg-[var(--green)] hover:text-[var(--black)]"
+          style={{ border: "1.5px solid var(--green)" }}
+        >
+          Parchar
+        </a>
+
+        <button
+          className="flex md:hidden flex-col gap-[5px] p-[6px]"
+          aria-label="Menú"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span
+            className="block w-[22px] h-[2px] transition-all duration-300"
+            style={{
+              background: "var(--white)",
+              transform: open ? "rotate(45deg) translate(5px, 5px)" : "none",
+            }}
+          />
+          <span
+            className="block w-[22px] h-[2px] transition-all duration-300"
+            style={{
+              background: "var(--white)",
+              opacity: open ? 0 : 1,
+            }}
+          />
+          <span
+            className="block w-[22px] h-[2px] transition-all duration-300"
+            style={{
+              background: "var(--white)",
+              transform: open ? "rotate(-45deg) translate(5px, -5px)" : "none",
+            }}
+          />
+        </button>
+      </nav>
+
+      {/* Mobile nav */}
+      <div
+        className={`fixed left-0 right-0 z-[998] flex-col gap-5 px-[5%] py-7 ${
+          open ? "flex" : "hidden"
+        }`}
+        style={{
+          top: "var(--nav-h)",
+          background: "rgba(8,8,8,0.97)",
+          backdropFilter: "blur(20px)",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+        }}
+      >
+        {[
+          { href: "#planes", label: "Planes" },
+          { href: "#eventos", label: "Eventos" },
+          { href: "#editorial", label: "Editorial" },
+          { href: "#stats", label: "Nosotros" },
+        ].map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className="font-display text-[28px] tracking-[0.03em] text-[var(--white)]"
+            onClick={() => setOpen(false)}
           >
-            {l.label}
-          </Link>
+            {link.label}
+          </a>
         ))}
-
-        {/* Live badge */}
-        <div className="hidden md:flex items-center gap-1.5 border border-white/10 px-2 py-1">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00D964] blink" />
-          <span className="text-[10px] font-mono text-[#00D964] uppercase tracking-widest" style={{ fontFamily: "'Space Mono', monospace" }}>
-            Análisis en vivo
-          </span>
-        </div>
-
-        <MagneticButton
-          className="border border-[#D90429] text-[#D90429] px-3 py-1.5 text-xs font-mono font-bold uppercase tracking-wider hover:bg-[#D90429] hover:text-white transition-colors"
-          strength={0.2}
+        <a
+          href="#"
+          onClick={() => setOpen(false)}
+          className="inline-flex justify-center font-display text-[15px] tracking-[0.13em] uppercase px-[30px] py-3 text-[var(--green)]"
+          style={{ border: "2px solid var(--green)" }}
         >
-          Suscríbete
-        </MagneticButton>
+          Parchar ahora
+        </a>
       </div>
-    </motion.nav>
+    </>
   );
 }
