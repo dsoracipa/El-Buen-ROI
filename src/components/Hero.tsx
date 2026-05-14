@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="hero-bg" />
       <img
         className="absolute inset-0 w-full h-full object-cover z-0"
-        src="https://picsum.photos/seed/medellin-noche/1920/1080"
+        src="/images/hero.png"
         alt="Medellín de noche"
         loading="eager"
         style={{ opacity: 0.52, filter: "saturate(.72) contrast(1.12)" }}
