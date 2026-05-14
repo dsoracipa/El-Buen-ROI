@@ -9,24 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#050505",
-        foreground: "#E5E5E5",
-        surface: "#111111",
-        "terminal-green": "#00D964",
-        "fire-red": "#D90429",
-        mustard: "#FFD166",
-        aggressive: "#FF6B35",
+        "pe-black": "#0A0A0A",
+        "pe-green": "#00FF87",
+        "pe-orange": "#FF6B2B",
+        "pe-white": "#F0F0F0",
+        "pe-900": "#111111",
+        "pe-800": "#1A1A1A",
+        "pe-700": "#252525",
       },
       fontFamily: {
-        anton: ["Anton", "sans-serif"],
-        inter: ["Inter", "sans-serif"],
-        mono: ["Space Mono", "monospace"],
-      },
-      boxShadow: {
-        brutal: "4px 4px 0px 0px #E5E5E5",
-        "brutal-red": "4px 4px 0px 0px #D90429",
-        "brutal-green": "4px 4px 0px 0px #00D964",
-        "brutal-lg": "6px 6px 0px 0px #E5E5E5",
+        display: ["var(--font-display)", "Anton", "sans-serif"],
+        body: ["var(--font-body)", "DM Sans", "sans-serif"],
       },
     },
   },
