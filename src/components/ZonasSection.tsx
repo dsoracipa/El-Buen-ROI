@@ -48,7 +48,7 @@ export default function ZonasSection() {
             className="font-display uppercase leading-[.92]"
             style={{ fontSize: "clamp(38px, 5.5vw, 74px)", letterSpacing: "-.01em" }}
           >
-            EL PARCHE
+            EL PLAN
             <br />
             DE TU BARRIO
           </h2>

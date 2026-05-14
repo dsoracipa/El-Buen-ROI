@@ -49,7 +49,7 @@ export default function Hero() {
           <span
             className="inline-block text-[var(--green)] animate-glitch"
           >
-            PARCHE
+            PLAN
           </span>
         </h1>
 

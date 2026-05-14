@@ -54,7 +54,7 @@ export default function Navbar() {
           className="hidden md:inline-block px-[22px] py-2 font-display text-[13px] tracking-[0.13em] uppercase transition-all duration-200 text-[var(--green)] hover:bg-[var(--green)] hover:text-[var(--black)]"
           style={{ border: "1.5px solid var(--green)" }}
         >
-          Parchar
+          Planear
         </a>
 
         <button
@@ -119,7 +119,7 @@ export default function Navbar() {
           className="inline-flex justify-center font-display text-[15px] tracking-[0.13em] uppercase px-[30px] py-3 text-[var(--green)]"
           style={{ border: "2px solid var(--green)" }}
         >
-          Parchar ahora
+          Planear ahora
         </a>
       </div>
     </>

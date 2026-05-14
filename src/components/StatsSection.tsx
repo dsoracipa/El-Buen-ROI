@@ -85,7 +85,7 @@ export default function StatsSection() {
         style={{ gridTemplateColumns: "repeat(3, 1fr)" }}
       >
         <StatItem target={1200} suffix="+" label="planes publicados" delay={0} />
-        <StatItem target={80} suffix="K" label="personas parchando" delay={0.15} />
+        <StatItem target={80} suffix="K" label="personas planeando" delay={0.15} />
         <StatItem target={12} label="categorías" delay={0.3} />
       </div>
     </section>

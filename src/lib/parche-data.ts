@@ -218,7 +218,7 @@ export const EDITORIAL: Editorial[] = [
     id: 2,
     tag: "Música",
     title: "AL RITMO\n",
-    titleEm: "PARCHE",
+    titleEm: "PLAN",
     desc: "Desde salsa hasta reggaeton, jazz hasta metal. La agenda musical de Medellín sin filtro. Bares y la rumba que no aparece en las guías.",
     cta: "Ver agenda",
     img: "https://picsum.photos/seed/music-mde/900/600",
@@ -227,7 +227,7 @@ export const EDITORIAL: Editorial[] = [
   {
     id: 3,
     tag: "Gastronomía",
-    title: "PARCHE A\nLA ",
+    title: "PLAN A\nLA ",
     titleEm: "CARTA",
     desc: "Bandeja paisa en el barrio, sushi en el Poblado, empanadas a las 3AM. La guía de sabores de una ciudad que nunca para de comer.",
     cta: "Descubrir restaurantes",

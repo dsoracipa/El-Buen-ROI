@@ -32,7 +32,7 @@ export default function EventosSection() {
             className="font-display uppercase leading-[.92]"
             style={{ fontSize: "clamp(38px, 5.5vw, 74px)", letterSpacing: "-.01em" }}
           >
-            PARCHES
+            PLANES
             <br />
             RECOMENDADOS
           </h2>

@@ -29,7 +29,7 @@ const PROPS = [
     ),
   },
   {
-    title: "80K+ parcheros",
+    title: "80K+ planeadores",
     sub: "Una comunidad activa que descubre y comparte los mejores rincones.",
     icon: (
       <svg viewBox="0 0 24 24" style={iconStyle}>

@@ -40,7 +40,7 @@ export default function Newsletter() {
             ENTRA AL
             <br />
             <em className="not-italic" style={{ color: "var(--green)" }}>
-              PARCHE
+              PLAN
             </em>
           </h2>
           <p
@@ -48,7 +48,7 @@ export default function Newsletter() {
             style={{ color: "rgba(240,240,240,.5)", maxWidth: 360 }}
           >
             Los mejores planes y eventos de Medellín, directo a tu correo. Sin
-            spam, puro parche.
+            spam, puro plan.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export default function Newsletter() {
                 ✓
               </div>
               <div className="font-display text-[28px] uppercase mb-2">
-                ¡Ya eres parte del parche!
+                ¡Ya eres parte del plan!
               </div>
               <div
                 className="text-[13px]"

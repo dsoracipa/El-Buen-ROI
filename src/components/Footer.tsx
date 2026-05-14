@@ -28,7 +28,7 @@ export default function Footer() {
             className="text-[13px] leading-[1.65]"
             style={{ color: "rgba(240,240,240,.42)", maxWidth: 240 }}
           >
-            &ldquo;Medellín tiene más parche del que crees.&rdquo;
+            &ldquo;Medellín tiene más plan del que crees.&rdquo;
           </p>
           <div className="flex gap-[10px] mt-6">
             {SOCIALS.map((s) => (
